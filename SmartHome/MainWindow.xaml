@@ -102,11 +102,14 @@
                     <StackPanel>
                         <TextBlock Text="💡 Освещение" Style="{StaticResource SubHeaderTextStyle}"/>
                         <WrapPanel>
-                            <Button Content="Гостиная" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"/>
-                            <Button Content="Кухня" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"/>
-                            <Button Content="Спальня" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"/>
+                            <Button Content="Гостиная" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"
+                                    Click="LivingRoomLight_Click"/>
+                            <Button Content="Кухня" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"
+                                    Click="KitchenLight_Click"/>
+                            <Button Content="Спальня" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"
+                                    Click="BedroomLight_Click"/>
                             <Button Content="Все выключить" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#FF9800" Width="120"/>
+                                    Background="#FF9800" Width="120" Click="AllLightsOff_Click"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
@@ -116,10 +119,12 @@
                     <StackPanel>
                         <TextBlock Text="🌡️ Климат-контроль" Style="{StaticResource SubHeaderTextStyle}"/>
                         <WrapPanel>
-                            <Button Content="Температура +" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="140"/>
-                            <Button Content="Температура -" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="140"/>
+                            <Button Content="Температура +" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="140"
+                                    Click="TemperatureUp_Click"/>
+                            <Button Content="Температура -" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="140"
+                                    Click="TemperatureDown_Click"/>
                             <Button Content="Включить кондиционер" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#4CAF50" Width="160"/>
+                                    Background="#4CAF50" Width="160" Click="ToggleAirConditioner_Click"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
@@ -130,9 +135,11 @@
                         <TextBlock Text="🔒 Безопасность" Style="{StaticResource SubHeaderTextStyle}"/>
                         <WrapPanel>
                             <Button Content="Включить сигнализацию" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#F44336" Width="160"/>
-                            <Button Content="Камеры наблюдения" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="160"/>
-                            <Button Content="Статус дверей" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"/>
+                                    Background="#F44336" Width="160" Click="ToggleAlarm_Click"/>
+                            <Button Content="Камеры наблюдения" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="160"
+                                    Click="ShowCameras_Click"/>
+                            <Button Content="Статус дверей" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"
+                                    Click="CheckDoorsStatus_Click"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
@@ -142,10 +149,12 @@
                     <StackPanel>
                         <TextBlock Text="🎵 Мультимедиа" Style="{StaticResource SubHeaderTextStyle}"/>
                         <WrapPanel>
-                            <Button Content="Включить музыку" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="140"/>
-                            <Button Content="Телевизор" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"/>
+                            <Button Content="Включить музыку" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="140"
+                                    Click="PlayMusic_Click"/>
+                            <Button Content="Телевизор" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" Width="120"
+                                    Click="ToggleTV_Click"/>
                             <Button Content="Кино режим" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#9C27B0" Width="120"/>
+                                    Background="#9C27B0" Width="120" Click="CinemaMode_Click"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
@@ -156,13 +165,13 @@
                         <TextBlock Text="⚡ Сценарии" Style="{StaticResource SubHeaderTextStyle}"/>
                         <WrapPanel>
                             <Button Content="Утро" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#FFC107" Width="100"/>
+                                    Background="#FFC107" Width="100" Click="MorningScenario_Click"/>
                             <Button Content="Вечер" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#FF9800" Width="100"/>
+                                    Background="#FF9800" Width="100" Click="EveningScenario_Click"/>
                             <Button Content="Ночь" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#673AB7" Width="100"/>
+                                    Background="#673AB7" Width="100" Click="NightScenario_Click"/>
                             <Button Content="Гости" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,10,10" 
-                                    Background="#E91E63" Width="100"/>
+                                    Background="#E91E63" Width="100" Click="GuestsScenario_Click"/>
                         </WrapPanel>
                     </StackPanel>
                 </Border>
@@ -173,13 +182,13 @@
         <Border Grid.Row="2" Background="White" CornerRadius="12" Padding="15" Margin="0,20,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="⚙️ Настройки" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,15,0" 
-                        Background="#607D8B" Width="130"/>
+                        Background="#607D8B" Width="130" Click="Settings_Click"/>
                 <Button Content="📊 Статистика" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,15,0" 
-                        Background="#009688" Width="130"/>
+                        Background="#009688" Width="130" Click="Statistics_Click"/>
                 <Button Content="❓ Помощь" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,15,0" 
-                        Background="#795548" Width="120"/>
+                        Background="#795548" Width="120" Click="Help_Click"/>
                 <Button Content="🚪 Выход" Style="{StaticResource RoundedButtonStyle}" 
-                        Background="#F44336" Width="120"/>
+                        Background="#F44336" Width="120" Click="Exit_Click"/>
             </StackPanel>
         </Border>
     </Grid>
