@@ -388,7 +388,10 @@ namespace SmartHome
         // Нижняя панель
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("⚙️ Открыты настройки системы", "Настройки", MessageBoxButton.OK, MessageBoxImage.Information);
+            SettingsWindow settingsWindow = new SettingsWindow();
+            settingsWindow.Owner = this; // Устанавливаем главное окно как владельца
+            settingsWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            settingsWindow.ShowDialog(); // Показываем как модальное окно
         }
 
         private void Statistics_Click(object sender, RoutedEventArgs e)
