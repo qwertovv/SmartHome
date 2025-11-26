@@ -1,0 +1,201 @@
+﻿<Window x:Class="SmartHome.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Справка - Умный Дом" 
+        Height="600" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+
+    <Window.Resources>
+        <Style x:Key="HelpHeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#2196F3"/>
+            <Setter Property="Margin" Value="0,20,0,10"/>
+        </Style>
+
+        <Style x:Key="HelpSubHeaderStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="Margin" Value="0,15,0,5"/>
+        </Style>
+
+        <Style x:Key="HelpTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#666666"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+        </Style>
+
+        <Style x:Key="HelpListItemStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#666666"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="10,2,0,2"/>
+        </Style>
+
+        <!-- Стиль для кнопки с закругленными углами -->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" 
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="5"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="ContentPresenter"
+                                              Content="{TemplateBinding Content}"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Margin="{TemplateBinding Padding}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#1976D2"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#0D47A1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                   Text="Справка по системе Умный Дом" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="#333333"
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20"/>
+
+        <!-- Содержание справки -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Введение -->
+                <TextBlock Text="Введение" Style="{StaticResource HelpHeaderStyle}"/>
+                <TextBlock Style="{StaticResource HelpTextStyle}">
+                    Добро пожаловать в систему управления умным домом! Это приложение позволяет вам контролировать все аспекты вашего дома: освещение, климат, безопасность и мультимедиа.
+                </TextBlock>
+
+                <!-- Навигация по вкладкам -->
+                <TextBlock Text="Навигация по вкладкам" Style="{StaticResource HelpSubHeaderStyle}"/>
+                <TextBlock Style="{StaticResource HelpTextStyle}">
+                    Приложение разделено на 5 основных вкладок:
+                </TextBlock>
+
+                <TextBlock Text="Освещение" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Управление светом во всех комнатах дома
+                    - Индикаторы показывают текущее состояние (зеленый - включено, красный - выключено)
+                    - Кнопка 'Переключить' меняет состояние света в конкретной комнате
+                    - Кнопка 'ВЫКЛЮЧИТЬ ВЕСЬ СВЕТ' отключает все освещение сразу
+                </TextBlock>
+
+                <TextBlock Text="Климат" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Контроль температуры, влажности и качества воздуха
+                    - Кнопки '+' и '-' для регулировки температуры
+                    - Управление кондиционером, обогревателем и увлажнителем
+                    - Показания обновляются в реальном времени
+                </TextBlock>
+
+                <TextBlock Text="Безопасность" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Управление системой безопасности
+                    - Включение/выключение сигнализации
+                    - Просмотр статуса камер наблюдения
+                    - Проверка состояния дверей и окон
+                    - Журнал событий системы безопасности
+                </TextBlock>
+
+                <TextBlock Text="Мультимедиа" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Управление аудиосистемой, телевизором и проектором
+                    - Медиасценарии: кино режим, музыкальный вечер, спортивный режим
+                    - Элементы управления воспроизведением музыки
+                </TextBlock>
+
+                <TextBlock Text="Сценарии" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Готовые сценарии для разных ситуаций (утро, вечер, ночь, гости)
+                    - Пользовательские сценарии для специфических нужд
+                    - Создание собственных сценариев
+                </TextBlock>
+
+                <!-- Основные функции -->
+                <TextBlock Text="Основные функции" Style="{StaticResource HelpSubHeaderStyle}"/>
+
+                <TextBlock Text="Индикаторы состояния" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Зеленый кружок: устройство включено/активно
+                    - Красный кружок: устройство выключено/неактивно
+                    - Наведите курсор на индикатор для подсказки
+                </TextBlock>
+
+                <TextBlock Text="Управление устройствами" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Нажмите на кнопку для изменения состояния устройства
+                    - Некоторые устройства имеют дополнительные элементы управления
+                    - Изменения применяются мгновенно
+                </TextBlock>
+
+                <TextBlock Text="Сценарии" Style="{StaticResource HelpListItemStyle}" FontWeight="SemiBold"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Сценарии автоматически настраивают несколько устройств
+                    - Нажмите 'Активировать' для запуска сценария
+                    - Создавайте собственные сценарии с помощью поля ввода
+                </TextBlock>
+
+                <!-- Советы -->
+                <TextBlock Text="Полезные советы" Style="{StaticResource HelpSubHeaderStyle}"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Регулярно проверяйте журнал событий безопасности
+                    - Используйте сценарии для экономии времени
+                    - Настраивайте температуру в зависимости от времени суток
+                    - При длительном отсутствии используйте сценарий 'Отпуск'
+                </TextBlock>
+
+                <!-- Устранение неисправностей -->
+                <TextBlock Text="Устранение неисправностей" Style="{StaticResource HelpSubHeaderStyle}"/>
+                <TextBlock Style="{StaticResource HelpListItemStyle}">
+                    - Если устройство не реагирует, проверьте подключение к сети
+                    - Перезагрузите приложение при нестабильной работе
+                    - Убедитесь, что все датчики подключены и работают
+                    - При проблемах с безопасностью проверьте питание камер
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Кнопка закрытия -->
+        <Button Grid.Row="2" 
+                Content="Закрыть" 
+                Style="{StaticResource RoundedButtonStyle}"
+                Width="100" 
+                Height="35"
+                Click="CloseButton_Click"
+                HorizontalAlignment="Center"
+                Margin="0,20,0,0"/>
+    </Grid>
+</Window>

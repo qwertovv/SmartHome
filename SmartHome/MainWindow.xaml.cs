@@ -399,8 +399,10 @@ namespace SmartHome
 
         private void Help_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("❓ Помощь по системе Умный Дом\n\nДля настройки обратитесь к администратору системы.",
-                          "Помощь", MessageBoxButton.OK, MessageBoxImage.Question);
+            HelpWindow helpWindow = new HelpWindow();
+            helpWindow.Owner = this; // Устанавливаем главное окно как владельца
+            helpWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            helpWindow.ShowDialog(); // Показываем как модальное окно
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -413,5 +415,6 @@ namespace SmartHome
                 Application.Current.Shutdown();
             }
         }
+
     }
 }
