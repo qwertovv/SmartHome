@@ -32,8 +32,9 @@ namespace SmartHome.ViewModels
             AutomationVM = new AutomationViewModel(HomeState, _logicEngine);
             SecurityVM = new SecurityViewModel(HomeState, _contractValidator, _logicEngine);
 
-            // Запуск фоновой проверки инвариантов
+            // Запуск фоновых процессов
             StartBackgroundChecks();
+            StartPowerMonitoring();
         }
 
         private async void StartBackgroundChecks()
@@ -46,6 +47,34 @@ namespace SmartHome.ViewModels
 
                 await Task.Delay(5000); // Проверка каждые 5 секунд
             }
+        }
+
+        private async void StartPowerMonitoring()
+        {
+            while (true)
+            {
+                HomeState.UpdateDevicePowerConsumption();
+                await Task.Delay(3000); // Обновление каждые 3 секунды
+            }
+        }
+
+        // Методы для управления устройствами
+        public void ToggleDevice(string deviceName, bool enable)
+        {
+            var device = HomeState.GetDevice(deviceName);
+            if (device != null)
+            {
+                if (enable)
+                    device.Enable();
+                else
+                    device.Disable();
+            }
+        }
+
+        public void SetDevicePower(string deviceName, double power)
+        {
+            var device = HomeState.GetDevice(deviceName);
+            device?.UpdatePowerConsumption(power);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
