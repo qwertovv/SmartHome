@@ -7,27 +7,29 @@
 
     <Window.Resources>
         <!-- Стиль для кнопок с закругленными углами -->
+        <!-- Обновленный стиль для кнопок с закругленными углами -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#2196F3"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="15,10"/>
-            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="Border" 
-                                Background="{TemplateBinding Background}" 
-                                CornerRadius="10"
-                                SnapsToDevicePixels="True">
+                        Background="{TemplateBinding Background}" 
+                        CornerRadius="8"
+                        SnapsToDevicePixels="True">
                             <ContentPresenter x:Name="ContentPresenter"
-                                              Content="{TemplateBinding Content}"
-                                              HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"
-                                              Margin="{TemplateBinding Padding}"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                      Content="{TemplateBinding Content}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      Margin="{TemplateBinding Padding}"
+                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -173,64 +175,69 @@
                                 <TextBlock Text="Статус освещения в комнатах" Style="{StaticResource SectionHeaderStyle}"/>
                                 <WrapPanel>
                                     <!-- Гостиная -->
-                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5">
+                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5" MinWidth="160">
                                         <StackPanel>
-                                            <TextBlock Text="Гостиная" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Гостиная" FontWeight="SemiBold" Margin="0,0,0,5" TextAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                                                 <TextBlock Text="Свет:" VerticalAlignment="Center"/>
                                                 <Ellipse x:Name="LivingRoomLightIndicator" Style="{StaticResource StatusIndicatorStyle}" 
-                                                         Fill="Red" ToolTip="Свет выключен"/>
+                                             Fill="Red" ToolTip="Свет выключен"/>
                                             </StackPanel>
                                             <Button Content="Переключить" Style="{StaticResource RoundedButtonStyle}" 
-                                                    Margin="0,10,0,0" Width="100" Click="LivingRoomLight_Click"/>
+                                        Margin="0,5,0,0" Width="120" Click="LivingRoomLight_Click"
+                                        FontSize="12" Padding="10,6"/>
                                         </StackPanel>
                                     </Border>
 
                                     <!-- Кухня -->
-                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5">
+                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5" MinWidth="160">
                                         <StackPanel>
-                                            <TextBlock Text="Кухня" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Кухня" FontWeight="SemiBold" Margin="0,0,0,5" TextAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                                                 <TextBlock Text="Свет:" VerticalAlignment="Center"/>
                                                 <Ellipse x:Name="KitchenLightIndicator" Style="{StaticResource StatusIndicatorStyle}" 
-                                                         Fill="Red" ToolTip="Свет выключен"/>
+                                             Fill="Red" ToolTip="Свет выключен"/>
                                             </StackPanel>
                                             <Button Content="Переключить" Style="{StaticResource RoundedButtonStyle}" 
-                                                    Margin="0,10,0,0" Width="100" Click="KitchenLight_Click"/>
+                                        Margin="0,5,0,0" Width="120" Click="KitchenLight_Click"
+                                        FontSize="12" Padding="10,6"/>
                                         </StackPanel>
                                     </Border>
 
                                     <!-- Спальня -->
-                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5">
+                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5" MinWidth="160">
                                         <StackPanel>
-                                            <TextBlock Text="Спальня" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Спальня" FontWeight="SemiBold" Margin="0,0,0,5" TextAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                                                 <TextBlock Text="Свет:" VerticalAlignment="Center"/>
                                                 <Ellipse x:Name="BedroomLightIndicator" Style="{StaticResource StatusIndicatorStyle}" 
-                                                         Fill="Red" ToolTip="Свет выключен"/>
+                                             Fill="Red" ToolTip="Свет выключен"/>
                                             </StackPanel>
                                             <Button Content="Переключить" Style="{StaticResource RoundedButtonStyle}" 
-                                                    Margin="0,10,0,0" Width="100" Click="BedroomLight_Click"/>
+                                        Margin="0,5,0,0" Width="120" Click="BedroomLight_Click"
+                                        FontSize="12" Padding="10,6"/>
                                         </StackPanel>
                                     </Border>
 
                                     <!-- Ванная -->
-                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5">
+                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5" MinWidth="160">
                                         <StackPanel>
-                                            <TextBlock Text="Ванная" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Ванная" FontWeight="SemiBold" Margin="0,0,0,5" TextAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                                                 <TextBlock Text="Свет:" VerticalAlignment="Center"/>
                                                 <Ellipse x:Name="BathroomLightIndicator" Style="{StaticResource StatusIndicatorStyle}" 
-                                                         Fill="Red" ToolTip="Свет выключен"/>
+                                             Fill="Red" ToolTip="Свет выключен"/>
                                             </StackPanel>
                                             <Button Content="Переключить" Style="{StaticResource RoundedButtonStyle}" 
-                                                    Margin="0,10,0,0" Width="100" Click="BathroomLight_Click"/>
+                                        Margin="0,5,0,0" Width="120" Click="BathroomLight_Click"
+                                        FontSize="12" Padding="10,6"/>
                                         </StackPanel>
                                     </Border>
                                 </WrapPanel>
 
                                 <Button Content="🔌 ВЫКЛЮЧИТЬ ВЕСЬ СВЕТ" Style="{StaticResource RoundedButtonStyle}" 
-                                        Background="#FF9800" Margin="0,20,0,0" Click="AllLightsOff_Click"/>
+                            Background="#FF9800" Margin="0,20,0,0" Click="AllLightsOff_Click"
+                            FontSize="12" Padding="15,8"/>
                             </StackPanel>
                         </Border>
 
@@ -239,29 +246,31 @@
                             <StackPanel>
                                 <TextBlock Text="Наружное освещение" Style="{StaticResource SectionHeaderStyle}"/>
                                 <WrapPanel>
-                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5">
+                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5" MinWidth="160">
                                         <StackPanel>
-                                            <TextBlock Text="Фасад дома" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Фасад дома" FontWeight="SemiBold" Margin="0,0,0,5" TextAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                                                 <TextBlock Text="Свет:" VerticalAlignment="Center"/>
                                                 <Ellipse x:Name="FacadeLightIndicator" Style="{StaticResource StatusIndicatorStyle}" 
-                                                         Fill="Red" ToolTip="Свет выключен"/>
+                                             Fill="Red" ToolTip="Свет выключен"/>
                                             </StackPanel>
                                             <Button Content="Переключить" Style="{StaticResource RoundedButtonStyle}" 
-                                                    Margin="0,10,0,0" Width="100" Click="FacadeLight_Click"/>
+                                        Margin="0,5,0,0" Width="120" Click="FacadeLight_Click"
+                                        FontSize="12" Padding="10,6"/>
                                         </StackPanel>
                                     </Border>
 
-                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5">
+                                    <Border Background="#F5F5F5" CornerRadius="10" Padding="15" Margin="5" MinWidth="160">
                                         <StackPanel>
-                                            <TextBlock Text="Сад" FontWeight="SemiBold" Margin="0,0,0,5"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="Сад" FontWeight="SemiBold" Margin="0,0,0,5" TextAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                                                 <TextBlock Text="Свет:" VerticalAlignment="Center"/>
                                                 <Ellipse x:Name="GardenLightIndicator" Style="{StaticResource StatusIndicatorStyle}" 
-                                                         Fill="Red" ToolTip="Свет выключен"/>
+                                             Fill="Red" ToolTip="Свет выключен"/>
                                             </StackPanel>
                                             <Button Content="Переключить" Style="{StaticResource RoundedButtonStyle}" 
-                                                    Margin="0,10,0,0" Width="100" Click="GardenLight_Click"/>
+                                        Margin="0,5,0,0" Width="120" Click="GardenLight_Click"
+                                        FontSize="12" Padding="10,6"/>
                                         </StackPanel>
                                     </Border>
                                 </WrapPanel>
