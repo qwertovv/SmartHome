@@ -82,5 +82,6 @@ namespace SmartHome.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }
