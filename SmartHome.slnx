@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="SmartHome.Tests/SmartHome.Tests.csproj" Id="6d4b16dc-1941-4f3a-9349-d5fca027144a" />
   <Project Path="SmartHome/SmartHome.csproj" />
 </Solution>
